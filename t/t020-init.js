@@ -11,6 +11,8 @@ tlib.cleanScratchDir()
 tlib.test('gas init', function(t) {
     const cmd = tlib.spawnInScratchDir(t, '../../../bin/gas init ' + docId)
     cmd.stdout.match('')
+    cmd.stderr.match('')
+    cmd.succeeds()
     cmd.end()
 })
 
