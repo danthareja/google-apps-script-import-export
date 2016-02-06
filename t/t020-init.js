@@ -13,11 +13,11 @@ tlib.test('gas init', function(t) {
     cmd.stdout.match('')
     cmd.stderr.match('')
     cmd.succeeds()
-    cmd.end()
+    cmd.end(() => checkProjectContent(t))
 })
 
-tlib.test('check init content', t => {
+
+function checkProjectContent(t) {
     const actual = fs.readFileSync(tlib.scratchFile('src/GAScode.js'), 'utf8')
     t.match(actual, / GAScode.gs /, 'Document contents')
-    t.end()
-})
+}
