@@ -1,0 +1,20 @@
+'use strict'
+const test = require('tape'),
+      Config = require('./config.js')
+
+test('config', t => {
+    const config = new Config()
+    config.addProject('fileIdXXX1234', 'path/to/project')
+    t.equal(config.getProject().fileId, 'fileIdXXX1234')
+    t.equal(config.getProject().path, 'path/to/project')
+    t.end()
+})
+
+test('config doesnt allow multiple projects', t => {
+    const config = new Config()
+    config.addProject('fileIdXXX1234', 'path/to/project')
+    t.throws(
+        () => config.addProject('1234', 'other/path'),
+        /.*already exists/)
+    t.end()
+})
