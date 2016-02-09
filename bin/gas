@@ -38,7 +38,7 @@ program
 program
   .command('download')
   .description('Download copy of current code for Apps Script project.')
-  .action(require(commands + '/download'))
+  .action(require(commands + '/download').command)
 
 program.parse(process.argv)
 
