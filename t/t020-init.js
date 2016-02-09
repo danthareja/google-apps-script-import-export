@@ -16,6 +16,14 @@ tlib.test('gas init', function(t) {
     cmd.end(() => checkProjectContent(t))
 })
 
+tlib.test('gas download', function(t) {
+    const cmd = tlib.spawnInScratchDir(t, '../../../bin/gas download')
+    cmd.stdout.match(/Downloading/)
+    cmd.stderr.match('')
+    cmd.succeeds()
+    cmd.end(() => checkProjectContent(t))
+})
+
 
 function checkProjectContent(t) {
     const actual = fs.readFileSync(tlib.scratchFile('src/GAScode.js'), 'utf8')
