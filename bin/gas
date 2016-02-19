@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-var _ = require('lodash');
 var path = require('path');
 var program = require('commander');
 var pkg = require('../package.json');
@@ -14,7 +13,7 @@ program
   .option('-b, --no-launch-browser',
     'Do not use a local webserver to capture oauth code and instead require copy/paste')
   .option('-p, --port [port]', 'Port to use for webserver')
-  .description('Authorize gapps to use the Google Drive API')
+  .description('Authorize gas to use the Google Drive API')
   .action(function(clientSecretPath, options) {
     require(commands + '/auth')(clientSecretPath, options.launchBrowser)
       .then(function() {
@@ -30,7 +29,6 @@ program
 
 program
   .command('init <fileId>')
-  .option('-k, --key [key]')
   .option('-s, --subdir [subdir]')
   .option('-o, --overwrite')
   .description('Initialize project. The external Apps Script project must exist.')
@@ -38,15 +36,23 @@ program
   .action(require(commands + '/init'));
 
 program
-  .command('oauth-callback-url')
-  .description('Get the OAuth Callback URL for a project')
-  .action(require(commands + '/oauthCallbackUrl'));
+  .command('download')
+  .description('Download copy of current code for Apps Script project.')
+  .action(require(commands + '/download').command)
 
-program
-  .parse(process.argv);
+program.parse(process.argv)
 
-if (program.args.length < 1 ) {
-  console.log('No command specified.');
-  program.outputHelp();
-  process.exit(2);
+var err
+if (program.args.length == 0) {
+    err = 'No command specified'
+} else if (program.args[program.args.length - 1] instanceof program.Command) {
+    err = undefined
+} else {
+    err = 'Bad command specified'
+}
+if (err) {
+    var p = require('process')
+    console.error(err)
+    program.outputHelp()
+    p.exit(2)
 }

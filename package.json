@@ -1,13 +1,16 @@
 {
-  "name": "node-google-apps-script",
-  "version": "1.1.4",
-  "description": "The easiest way to develop Google Apps Script projects",
+  "name": "gas-tools",
+  "version": "2.0.0-dev.0",
+  "description": "Tools to help test and deploy Google Action Script projects",
+  "scripts": {
+    "test": "./node_modules/.bin/gulp test --silent"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danthareja/node-google-apps-script.git"
+    "url": "https://github.com/cynic-net/gas-tools.git"
   },
   "bin": {
-    "gapps": "./bin/gapps"
+    "gas": "./bin/gas"
   },
   "main": "index",
   "preferGlobal": true,
@@ -27,12 +30,21 @@
     "push",
     "clone"
   ],
-  "author": "Dan Thareja (danthareja@gmail.com)",
+  "contributors": [
+    {
+      "name": "Curt J. Sampson",
+      "email": "cjs@cynic.net"
+    },
+    {
+      "name": "Nishant Rodrigues",
+      "email": "nishantjr@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danthareja/node-google-apps-script/issues"
+    "url": "https://github.com/cynic-net/gas-tools/issues"
   },
-  "homepage": "https://github.com/danthareja/node-google-apps-script",
+  "homepage": "https://github.com/cynic-net/gas-tools",
   "dependencies": {
     "bluebird": "^2.9.30",
     "colors": "^1.0.3",
@@ -43,7 +55,15 @@
     "node-dir": "^0.1.6",
     "request": "^2.54.0"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "gulp": "^3.9.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-tape": "0.0.7",
+    "jshint": "^2.9.1",
+    "rimraf": "^2.5.1",
+    "tape": "^4.4.0",
+    "tape-spawn": "^1.4.1"
   }
 }

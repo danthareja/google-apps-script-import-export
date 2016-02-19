@@ -1,0 +1,8 @@
+{
+    "asi": true,
+    "esversion": 6,
+    "node": true,
+    "strict": "global",
+    "undef": false,
+    "varstmt": true
+}

@@ -1,0 +1,11 @@
+'use strict'
+
+const test = require('tape')
+
+test('require_package', (t) => {
+    const gas = require('./')
+    t.assert(gas)
+    t.equal(gas.defaults.DEFAULT_SUBDIR, 'src')
+    t.end()
+})
+
