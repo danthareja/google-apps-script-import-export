@@ -40,8 +40,7 @@
     "googleapis": "^2.0.5",
     "lodash": "^3.9.3",
     "mkdirp": "^0.5.1",
-    "node-dir": "^0.1.6",
-    "request": "^2.54.0"
+    "node-dir": "^0.1.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
