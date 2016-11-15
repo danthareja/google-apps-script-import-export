@@ -113,6 +113,7 @@ Check out Matt Hessinger's blog post: [Advanced development process with apps](h
 
   Options:
 
+    -c, --credentials <file> Write credentials to <file>. Default: ~/.gapps
     -b, --no-launch-browser  Do not use a local webserver to capture oauth code
                               and instead require copy/paste of key returned in
                               the browser after authorization completes.
@@ -129,6 +130,7 @@ Performs the authentication flow described in the quickstart above.
   Initialize project locally. The external Apps Script project must exist.
 
   Options:
+    -c, --credentials <file>    Read stored credentials from <file>. Default: ~/.gapps
     -k, --key [key]
     -s, --subdir [subdir]
     -o, --overwrite
@@ -142,6 +144,9 @@ Creates `gapps.config.json`, which contains information about your Apps Script p
   Usage: gapps upload|push
 
   Upload back to Google Drive. Run from root of project directory
+
+  Options:
+    -c, --credentials <file>    Read stored credentials from <file>. Default: ~/.gapps
 ```
 
 Upload the project to Google Drive. Sources files from `./src` or the
