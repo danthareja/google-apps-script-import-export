@@ -14,8 +14,7 @@ The branch works for scripts sitting in a Team Drive by adding the parameter sup
 	          mimeType: 'application/vnd.google-apps.script+json',
 	          body: JSON.stringify({ files: files })
 	        }
-	      }; 
-```
+	      }; ```
 fixes the problem for a team drive
 
 
