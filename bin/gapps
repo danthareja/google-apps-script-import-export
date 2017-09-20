@@ -24,6 +24,7 @@ program
 
 program
   .command('upload')
+  .option('-t, --teamdrive')
   .description('Upload back to an Apps Script project in Google Drive. Run from root of project directory')
   .alias('push')
   .action(require(commands + '/upload'));
