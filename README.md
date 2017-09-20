@@ -1,3 +1,24 @@
+The branch works for scripts sitting in a Team Drive by adding the parameter supportsTeamDrives to the upload request. 
+
+* Moving the script to a team drive causes https://github.com/danthareja/node-google-apps-script to fail uploading 
+* This is because the update command wants a parameter `supportTeamDrives` set to true, see https://developers.google.com/apis-explorer/?hl=en_US#p/drive/v3/drive.files.update  and https://developers.google.com/drive/v3/reference/files/update
+* https://developers.google.com/drive/v3/web/enable-teamdrives  : “If your application isn't affected by the behavioral differences, then you only need to include thesupportsTeamDrives=true query parameter in requests. This is an acknowledgement that the application is aware of behavioral differences of files contained in Team Drives.”
+* Adding  `supportsTeamDrives: true` to 
+  ```return authenticate()
+	    .then(function(auth) {
+	      var drive = google.drive({ version: 'v2', auth: auth });
+	      var options = {
+	        fileId: id,
+	        supportsTeamDrives: true,
+	        media: {
+	          mimeType: 'application/vnd.google-apps.script+json',
+	          body: JSON.stringify({ files: files })
+	        }
+	      }; ```
+fixes the problem for a team drive
+
+
+
 # gapps (Google Apps Script)
 >The easiest way to develop Google Apps Script projects
 
