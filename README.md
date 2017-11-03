@@ -1,13 +1,16 @@
 ---
-### :warning: A request for maintainers :construction:
+### Fork of [node-google-apps-script](https://github.com/danthareja/node-google-apps-script)
 
-This project was initially developed for my own personal use at work and reached a wider audience with the help of a few members on the Google Apps Script team. I do not have the capacity to maintain this project and I am asking you, the beloved community member, for help.
+This project is a fork of Dan Thareja's excellent [ node-google-apps-script](https://github.com/danthareja/node-google-apps-script)
+It is meant to submit a fix and pull-request to that npm package. 
 
-While the core commands are mostly stable, users have identified a few bugs and asked for some additional features. I need help taking action on these [issues](https://github.com/danthareja/node-google-apps-script/issues) and [pull requests](https://github.com/danthareja/node-google-apps-script/pulls), ideally from someone who uses this project in production.
+The fix is for [this issue](https://github.com/danthareja/node-google-apps-script/issues/71). Explanation:
+* Google Apps Script (GAS) seems to have recently introduces support for [manifest files](https://developers.google.com/apps-script/concepts/manifests)
+* GAS allows definition of these files in a file called appsscript.json
+* node-google-apps-script as of `1.1.5` does not support .json files
+* This fork adds support for .json files so that appsscript.json can be synced.
 
-If you are interested in taking over this project, please [contact me](mailto:danthareja@gmail.com). I'm happy to provide anything you need in order to continue improving this useful tool for the community.
 
-Until a candidate has been selected for take over, I will not be able to review issues and pull requests. I encourage anyone interested in active development to do so in a fork.
 
 ---
 
