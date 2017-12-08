@@ -177,8 +177,6 @@ If you want to develop, clone down the repo and have at it! You can run `npm lin
 
 ## Limitations
 
-`gapps` allows you to nest files in folders, but the Apps Script platform expects a flat file structure. Because of this, **no files can have the same name, even if they are in separate directories**. One file will overwrite the other, making debugging difficult.
-
 Your add-on must be developed as a [standalone script](https://developers.google.com/apps-script/guides/standalone)
 and tested within Doc or Sheet. This means that it cannot use certain functions of [bound scripts](https://developers.google.com/apps-script/guides/bound), namely installable triggers. While testing within a Doc, you have access to the
 "Special methods" mentioned in [the docs](https://developers.google.com/apps-script/guides/bound), though. If
